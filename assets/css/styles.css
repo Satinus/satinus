@@ -1,121 +1,67 @@
-/* Estilos específicos para el logo */
-.floating-header .logo {
-    height: 50px; /* Ajusta este valor */
-    width: auto; /* Evita que se estire */
-    max-width: 100%;
+/* Reset básico */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-/* Reset para elementos cargados dinámicamente */
-.floating-header {
-    position: relative;
-    z-index: 1000;
-    background: #000;
-    color: white;
+/* Variables */
+:root {
+    --color-primary: #000000;
+    --color-secondary: #333333;
+    --color-light: #ffffff;
+    --spacing: 1rem;
 }
 
-.header-content {
+/* Header */
+.header {
+    background: var(--color-primary);
+    padding: var(--spacing);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header__container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem;
 }
 
-/* ===== ESTILOS GENERALES ===== */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    color: #333;
+.header__logo {
+    height: 40px; /* Control preciso del tamaño */
+    width: auto;
 }
 
+.header__nav {
+    display: none; /* Oculto en móvil */
+}
+
+/* Footer */
+.footer {
+    background: var(--color-secondary);
+    padding: var(--spacing);
+    text-align: center;
+}
+
+/* Contenido principal */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* ===== HEADER/FOOTER ===== */
-/* (Conservar tus estilos actuales del header/footer) */
-
-/* ===== PÁGINA PRODUCTOS ===== */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
-    padding: 2rem 0;
-}
-
-.producto {
-    background: #fff;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-}
-
-.producto:hover {
-    transform: translateY(-5px);
-}
-
-/* ===== PÁGINA QUIÉNES SOMOS ===== */
-.about-section {
-    max-width: 800px;
-    margin: 2rem auto;
-    line-height: 1.8;
-}
-
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
-}
-
-.mission-vision {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin: 3rem 0;
-}
-
-/* ===== PÁGINA SERVICIOS ===== */
-.services-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 2rem 0;
-}
-
-.service-card {
-    background: #fff;
-    border-radius: 8px;
     padding: 2rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    min-height: 80vh;
 }
 
-/* ===== PÁGINA CONTACTO ===== */
-.contact-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin: 2rem 0;
-}
-
-.contact-form {
-    max-width: 600px;
-    margin: 2rem auto;
-}
-
-/* ===== MEDIA QUERIES ===== */
-@media (max-width: 768px) {
-    .mission-vision {
-        grid-template-columns: 1fr;
+/* Responsive */
+@media (min-width: 768px) {
+    .header__nav {
+        display: flex;
+        gap: 1.5rem;
     }
     
-    .producto, .service-card {
-        padding: 1rem;
+    .header__menu-toggle {
+        display: none;
     }
 }

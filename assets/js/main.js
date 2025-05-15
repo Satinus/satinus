@@ -1,17 +1,7 @@
-// load-components.js (versión mejorada)
-const loadComponent = async (path, targetSelector, position = 'beforeend') => {
-    try {
-        const response = await fetch(path);
-        if (!response.ok) throw new Error(`Error ${response.status}`);
-        const html = await response.text();
-        document.querySelector(targetSelector).insertAdjacentHTML(position, html);
-        console.log(`Componente ${path} cargado`);
-    } catch (error) {
-        console.error(`Error cargando ${path}:`, error);
+// Menu toggle para móviles
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('header__menu-toggle')) {
+        const nav = document.querySelector('.header__nav');
+        nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
     }
-};
-
-document.addEventListener('DOMContentLoaded', () => {
-    loadComponent('../includes/header.html', 'body', 'afterbegin');
-    loadComponent('../includes/footer.html', 'body', 'beforeend');
 });
