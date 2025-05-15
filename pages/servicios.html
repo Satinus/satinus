@@ -1,30 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta name="theme-color" content="#000000">
-<meta property="og:title" content="Mi Empresa">
-<meta property="og:image" content="assets/img/logo-social.jpg">
-
+    <meta name="theme-color" content="#000000">
+    <meta property="og:title" content="Satinus - Servicios">
+    <meta property="og:image" content="../assets/img/logo-social.jpg">
     <meta charset="UTF-8">
-    <title>Nuestros Servicios</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios | Satinus</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="icon" href="../assets/img/favicon.ico">
 </head>
 <body>
-    <header class="floating-header">
-        <!-- Mismo header que index.html -->
-    </header>
+    <!--#include virtual="../includes/header.html" -->
 
-    <main>
-        <h1>Nuestros Servicios</h1>
-        <ul>
-            <li>Servicio 1</li>
-            <li>Servicio 2</li>
-            <li>Servicio 3</li>
-        </ul>
+    <main class="container page-services">
+        <h1 class="page-title">Nuestros Servicios</h1>
+        
+        <div class="services-grid">
+            <div class="service-card card">
+                <div class="service-icon">
+                    <img src="../assets/icons/consultoria.svg" alt="Consultoría">
+                </div>
+                <h3 class="service-title">Consultoría Tecnológica</h3>
+                <ul class="service-features">
+                    <li>Análisis de infraestructura</li>
+                    <li>Migración a la nube</li>
+                    <li>Optimización de procesos</li>
+                </ul>
+                <button class="btn service-btn">Saber más</button>
+            </div>
+            
+            <div class="service-card card">
+                <div class="service-icon">
+                    <img src="../assets/icons/desarrollo.svg" alt="Desarrollo">
+                </div>
+                <h3 class="service-title">Desarrollo Web</h3>
+                <ul class="service-features">
+                    <li>Sitios corporativos</li>
+                    <li>Tiendas online</li>
+                    <li>Aplicaciones web</li>
+                </ul>
+                <button class="btn service-btn">Saber más</button>
+            </div>
+        </div>
     </main>
 
-    <footer>
-        <!-- Mismo footer que index.html -->
-    </footer>
+    <!--#include virtual="../includes/footer.html" -->
+
+    <script src="../assets/js/main.js"></script>
 </body>
 </html>
