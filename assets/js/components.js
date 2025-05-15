@@ -1,16 +1,17 @@
-// Carga componentes dinámicamente
-const loadComponent = async (component, target) => {
-    try {
-        const response = await fetch(`/includes/${component}.html`);
-        const html = await response.text();
-        document.querySelector(target).insertAdjacentHTML('afterbegin', html);
-    } catch (error) {
-        console.error(`Error cargando ${component}:`, error);
-    }
-};
-
-// Carga header y footer
+// assets/js/components.js
 document.addEventListener('DOMContentLoaded', () => {
-    loadComponent('header', 'body');
-    loadComponent('footer', 'body');
+    // Cargar header AL INICIO del body
+    fetch('/includes/header.html')
+        .then(res => res.text())
+        .then(html => {
+            document.body.insertAdjacentHTML('afterbegin', html);
+            initMenu(); // Si tienes funciones del menú
+        });
+    
+    // Cargar footer AL FINAL del body
+    fetch('/includes/footer.html')
+        .then(res => res.text())
+        .then(html => {
+            document.body.insertAdjacentHTML('beforeend', html);
+        });
 });
