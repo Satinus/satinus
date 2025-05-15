@@ -1,9 +1,23 @@
 <header class="header">
     <div class="header__container">
-        <img src="/assets/img/logo.png" alt="Logo Satinus" class="header__logo">
-        <nav class="header__nav">
-            <a href="/">Inicio</a>
-            <a href="/servicios">Servicios</a>
+        <!-- Logo redondeado -->
+        <a href="/" class="header__logo-link">
+            <img src="/assets/img/logo.png" alt="Satinus" class="header__logo">
+        </a>
+        
+        <!-- Menú responsivo -->
+        <button class="header__menu-toggle" aria-expanded="false" aria-label="Menú">
+            <span class="menu-icon">☰</span>
+        </button>
+        
+        <nav class="header__nav" aria-label="Navegación principal">
+            <ul class="header__nav-list">
+                <li><a href="/" class="header__nav-link">Inicio</a></li>
+                <li><a href="/servicios" class="header__nav-link">Servicios</a></li>
+                <li><a href="/productos" class="header__nav-link">Productos</a></li>
+                <li><a href="/contacto" class="header__nav-link">Contacto</a></li>
+                <li><a href="/quienes-somos" class="header__nav-link">Quiénes Somos</a></li>
+            </ul>
         </nav>
     </div>
 </header>
