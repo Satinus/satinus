@@ -1,20 +1,17 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Menú hamburguesa
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mainNav = document.querySelector('.main-nav');
-    
-    if (menuToggle && mainNav) {
-        menuToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('active');
-        });
+// load-components.js (versión mejorada)
+const loadComponent = async (path, targetSelector, position = 'beforeend') => {
+    try {
+        const response = await fetch(path);
+        if (!response.ok) throw new Error(`Error ${response.status}`);
+        const html = await response.text();
+        document.querySelector(targetSelector).insertAdjacentHTML(position, html);
+        console.log(`Componente ${path} cargado`);
+    } catch (error) {
+        console.error(`Error cargando ${path}:`, error);
     }
+};
 
-    // Resaltar enlace activo
-    const currentPage = location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.main-nav a').forEach(link => {
-        const linkPage = link.getAttribute('href').split('/').pop();
-        if (linkPage === currentPage) {
-            link.classList.add('active');
-        }
-    });
+document.addEventListener('DOMContentLoaded', () => {
+    loadComponent('../includes/header.html', 'body', 'afterbegin');
+    loadComponent('../includes/footer.html', 'body', 'beforeend');
 });
